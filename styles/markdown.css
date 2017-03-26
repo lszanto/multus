@@ -1,0 +1,23 @@
+.markdown {
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.86;
+}
+
+.markdown * {
+    padding: 0;
+    margin: 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+    margin: 1.414rem 0 .5rem;
+    line-height: 1.5;
+}
+
+.markdown blockquote {
+    padding: 5px 1.0rem;
+    margin-left: 1.0rem;
+    border-left: #ccc 5px solid;
+}

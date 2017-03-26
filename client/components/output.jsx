@@ -2,29 +2,17 @@ import React from 'react';
 import showdown from 'showdown';
 
 export default class Output extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
-        this.state = {
-            markdown: '#hello, markdown!'
-        };
 
-        this.updateText = this.updateText.bind(this);
-    }
-
-    updateText(e) {
-        this.setState({
-            markdown: document.getElementById('texta').value
-        });
+        // set a markdown converter
+        this.toMarkdown = new showdown.Converter();
     }
 
     render() {
-        var converter = new showdown.Converter();
-        var html = converter.makeHtml(this.state.markdown);
+        var html = this.toMarkdown.makeHtml(this.props.content);
         return (
-            <div id="out" >
-                <div>
-                    <textarea id="texta" onKeyUp={this.updateText} >Hello</textarea>
-                </div>
+            <div className="output item markdown" >
                 <div dangerouslySetInnerHTML={{__html: html}} ></div>
             </div>
         );
