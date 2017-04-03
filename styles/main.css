@@ -11,6 +11,10 @@ html, body {
     display: flex;
 }
 
+.page .editor {
+    background-color: #999;
+}
+
 .page .item {
     flex: 1;
     border-left: #ddd 1px solid;

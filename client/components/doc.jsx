@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Output from './output.jsx';
+import Editor from './editor.jsx';
 
 export default class Doc extends React.Component {
     constructor() {
@@ -9,27 +10,22 @@ export default class Doc extends React.Component {
         // set initial state
         this.state = {
             isNew: true,
-            content: '# start typing content'
+            content: ''
         };
 
-        this.updateText = this.updateText.bind(this);
+        this.editorChange = this.editorChange.bind(this);
     }
 
-    updateText(e) {
+    editorChange(content) {
         this.setState({
-            content: e.target.value
+            content: content
         });
     }
 
     render() {
         return (
             <div className="page" >
-                <div className="editor item" >
-                    <h1>{this.props.match.params.name} Doc</h1>
-
-                    <textarea onChange={this.updateText} value={this.state.content} ></textarea>
-                </div>
-
+                { this.state.isNew ? <Editor title={this.props.match.params.name} editorChange={this.editorChange} /> : null }
                 <Output content={this.state.content} />
             </div>
         );
