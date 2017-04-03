@@ -10,7 +10,7 @@ export default class Doc extends React.Component {
         // set initial state
         this.state = {
             isNew: true,
-            content: ''
+            content: '# start typing content'
         };
 
         this.editorChange = this.editorChange.bind(this);
@@ -25,7 +25,7 @@ export default class Doc extends React.Component {
     render() {
         return (
             <div className="page" >
-                { this.state.isNew ? <Editor title={this.props.match.params.name} editorChange={this.editorChange} /> : null }
+                { this.state.isNew ? <Editor title={this.props.match.params.name} editorChange={this.editorChange} defaultValue={this.state.content} /> : null }
                 <Output content={this.state.content} />
             </div>
         );

@@ -5,7 +5,7 @@ export default class Editor extends React.Component {
         super();
 
         this.state = {
-            content: '# start typing content'
+            content: props.defaultValue
         };
 
         this.updateText = this.updateText.bind(this);
